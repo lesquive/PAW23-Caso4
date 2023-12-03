@@ -16,10 +16,12 @@ namespace AutoFixRepairAPI.Models
         public DbSet<SolicitudReparacion> SolicitudesReparacion { get; set; }
         public DbSet<TipoReparacion> TiposReparacion { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            // Agrega configuraciones de modelos, relaciones y restricciones aquí si es necesario
-            base.OnModelCreating(modelBuilder);
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseMySql("AutoFixDbContext", new MySqlServerVersion(new Version(8, 0, 25)));
+            }
         }
     }
 }
