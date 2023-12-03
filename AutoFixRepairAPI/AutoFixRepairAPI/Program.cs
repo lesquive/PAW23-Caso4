@@ -31,6 +31,7 @@ builder.Services.AddScoped<InformacionServiciosServices>();
 builder.Services.AddScoped<ClienteServices>();
 builder.Services.AddScoped<SolicitudReparacionServices>();
 builder.Services.AddScoped<TipoReparacionServices>();
+builder.Services.AddScoped<AsignacionSolicitudService>();
 
 var app = builder.Build();
 

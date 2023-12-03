@@ -10,7 +10,8 @@ namespace AutoFixRepairAPI.Models
         public int TipoReparacionId { get; set; }
         public TipoReparacion TipoReparacion { get; set; }
 
+        public int? IdMecanicoAsignado { get; set; }
+
+        public bool Completada { get; set; } 
     }
-
 }
-
