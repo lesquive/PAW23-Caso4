@@ -61,17 +61,17 @@ namespace AutoFixRepairAPI.Models
 
             );
             modelBuilder.Entity<SolicitudReparacion>().HasData(
-                new SolicitudReparacion { Id = 1, ClienteId = 1, TipoReparacionId = 1, IdMecanicoAsignado = null, Completada = false },
-                new SolicitudReparacion { Id = 2, ClienteId = 2, TipoReparacionId = 2, IdMecanicoAsignado = null, Completada = false },
-                new SolicitudReparacion { Id = 3, ClienteId = 3, TipoReparacionId = 3, IdMecanicoAsignado = null, Completada = false },
-                new SolicitudReparacion { Id = 4, ClienteId = 4, TipoReparacionId = 4, IdMecanicoAsignado = null, Completada = false },
-                new SolicitudReparacion { Id = 5, ClienteId = 5, TipoReparacionId = 5, IdMecanicoAsignado = null, Completada = false },
-                new SolicitudReparacion { Id = 6, ClienteId = 6, TipoReparacionId = 6, IdMecanicoAsignado = null, Completada = false },
-                new SolicitudReparacion { Id = 7, ClienteId = 7, TipoReparacionId = 7, IdMecanicoAsignado = null, Completada = false },
-                new SolicitudReparacion { Id = 8, ClienteId = 3, TipoReparacionId = 8, IdMecanicoAsignado = null, Completada = false },
-                new SolicitudReparacion { Id = 9, ClienteId = 5, TipoReparacionId = 9, IdMecanicoAsignado = null, Completada = false },
-                new SolicitudReparacion { Id = 10, ClienteId = 1, TipoReparacionId = 10, IdMecanicoAsignado = null, Completada = false },
-                new SolicitudReparacion { Id = 11, ClienteId = 3, TipoReparacionId = 11, IdMecanicoAsignado = null, Completada = false }
+                new SolicitudReparacion { Id = 1, ClienteId = 1, TipoReparacionId = 1, IdMecanicoAsignado = null, Completada = false, ModeloAutomovil = "Modelo A",MarcaAutomovil = "Marca X",AnioAutomovil = 2022, PlacaAutomovil = "XYZ456"},
+                new SolicitudReparacion { Id = 2, ClienteId = 2, TipoReparacionId = 2, IdMecanicoAsignado = null, Completada = false, ModeloAutomovil = "Modelo A", MarcaAutomovil = "Marca X", AnioAutomovil = 2022, PlacaAutomovil = "XYZ456" },
+                new SolicitudReparacion { Id = 3, ClienteId = 3, TipoReparacionId = 3, IdMecanicoAsignado = null, Completada = false, ModeloAutomovil = "Modelo A", MarcaAutomovil = "Marca X", AnioAutomovil = 2022, PlacaAutomovil = "XYZ456" },
+                new SolicitudReparacion { Id = 4, ClienteId = 4, TipoReparacionId = 4, IdMecanicoAsignado = null, Completada = false, ModeloAutomovil = "Modelo A", MarcaAutomovil = "Marca X", AnioAutomovil = 2022, PlacaAutomovil = "XYZ456" },
+                new SolicitudReparacion { Id = 5, ClienteId = 5, TipoReparacionId = 5, IdMecanicoAsignado = null, Completada = false, ModeloAutomovil = "Modelo A", MarcaAutomovil = "Marca X", AnioAutomovil = 2022, PlacaAutomovil = "XYZ456" },
+                new SolicitudReparacion { Id = 6, ClienteId = 6, TipoReparacionId = 6, IdMecanicoAsignado = null, Completada = false, ModeloAutomovil = "Modelo A", MarcaAutomovil = "Marca X", AnioAutomovil = 2022, PlacaAutomovil = "XYZ456" },
+                new SolicitudReparacion { Id = 7, ClienteId = 7, TipoReparacionId = 7, IdMecanicoAsignado = null, Completada = false, ModeloAutomovil = "Modelo A", MarcaAutomovil = "Marca X", AnioAutomovil = 2022, PlacaAutomovil = "XYZ456" },
+                new SolicitudReparacion { Id = 8, ClienteId = 3, TipoReparacionId = 8, IdMecanicoAsignado = null, Completada = false, ModeloAutomovil = "Modelo A", MarcaAutomovil = "Marca X", AnioAutomovil = 2022, PlacaAutomovil = "XYZ456" },
+                new SolicitudReparacion { Id = 9, ClienteId = 5, TipoReparacionId = 9, IdMecanicoAsignado = null, Completada = false, ModeloAutomovil = "Modelo A", MarcaAutomovil = "Marca X", AnioAutomovil = 2022, PlacaAutomovil = "XYZ456" },
+                new SolicitudReparacion { Id = 10, ClienteId = 1, TipoReparacionId = 10, IdMecanicoAsignado = null, Completada = false, ModeloAutomovil = "Modelo A", MarcaAutomovil = "Marca X", AnioAutomovil = 2022, PlacaAutomovil = "XYZ456" },
+                new SolicitudReparacion { Id = 11, ClienteId = 3, TipoReparacionId = 11, IdMecanicoAsignado = null, Completada = false, ModeloAutomovil = "Modelo A", MarcaAutomovil = "Marca X", AnioAutomovil = 2022, PlacaAutomovil = "XYZ456" }
 
             );
 

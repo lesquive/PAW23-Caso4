@@ -1,0 +1,53 @@
+﻿@page
+@model AutoFixRepairAPI.Pages.CrearSolicitudModel
+@{
+    ViewData["Title"] = "Crear Solicitud";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="ClienteId">ID del Cliente:</label>
+        <input type="number" id="ClienteId" name="ClienteId" class="form-control" asp-for="solicitudReparacion.ClienteId" />
+        <span asp-validation-for="solicitudReparacion.ClienteId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="TipoReparacionId">ID del Tipo de Reparación:</label>
+        <input type="number" id="TipoReparacionId" name="TipoReparacionId" class="form-control" asp-for="solicitudReparacion.TipoReparacionId" />
+        <span asp-validation-for="solicitudReparacion.TipoReparacionId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="IdMecanicoAsignado">ID del Mecánico Asignado:</label>
+        <input type="number" id="IdMecanicoAsignado" name="IdMecanicoAsignado" class="form-control" asp-for="solicitudReparacion.IdMecanicoAsignado" />
+        <span asp-validation-for="solicitudReparacion.IdMecanicoAsignado" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="ModeloAutomovil">Modelo del Automóvil:</label>
+        <input type="text" id="ModeloAutomovil" name="ModeloAutomovil" class="form-control" asp-for="solicitudReparacion.ModeloAutomovil" />
+        <span asp-validation-for="solicitudReparacion.ModeloAutomovil" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="MarcaAutomovil">Marca del Automóvil:</label>
+        <input type="text" id="MarcaAutomovil" name="MarcaAutomovil" class="form-control" asp-for="solicitudReparacion.MarcaAutomovil" />
+        <span asp-validation-for="solicitudReparacion.MarcaAutomovil" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="AnioAutomovil">Año del Automóvil:</label>
+        <input type="number" id="AnioAutomovil" name="AnioAutomovil" class="form-control" asp-for="solicitudReparacion.AnioAutomovil" />
+        <span asp-validation-for="solicitudReparacion.AnioAutomovil" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="PlacaAutomovil">Placa del Automóvil:</label>
+        <input type="text" id="PlacaAutomovil" name="PlacaAutomovil" class="form-control" asp-for="solicitudReparacion.PlacaAutomovil" />
+        <span asp-validation-for="solicitudReparacion.PlacaAutomovil" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar Solicitud</button>
+</form>

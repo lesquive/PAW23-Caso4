@@ -1,0 +1,49 @@
+﻿@page
+@model frontEnd.Pages.IndexModel
+@{
+    ViewData["Title"] = "Servicios de AutoFix";
+}
+
+<h1>Servicios de AutoFix</h1>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <p>@Model.ErrorMessage</p>
+}
+else
+{
+    <div class="row">
+        @foreach (var servicio in Model.Servicios)
+        {
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">@servicio.Nombre</h5>
+                        <p class="card-text">Breve descripción o detalles del servicio</p>
+                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#detalleServicioModal_@servicio.Id">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="detalleServicioModal_@servicio.Id" tabindex="-1" role="dialog" aria-labelledby="detalleServicioModalLabel_@servicio.Id" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="detalleServicioModalLabel_@servicio.Id">Detalles de @servicio.Nombre</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            @await Html.PartialAsync("_DetalleServicio", servicio)
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <a href="#" class="btn btn-primary">Cerrar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

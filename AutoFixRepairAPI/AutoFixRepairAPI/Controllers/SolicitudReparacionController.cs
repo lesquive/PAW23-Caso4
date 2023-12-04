@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using AutoFixRepairAPI.Models;
 using AutoFixRepairAPI.Services;
 
 namespace AutoFixRepairAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/SolicitudReparacion")]
     [ApiController]
     public class SolicitudReparacionController : ControllerBase
     {
@@ -17,14 +18,14 @@ namespace AutoFixRepairAPI.Controllers
         }
 
         [HttpGet]
-        public IActionResult ObtenerTodasLasSolicitudes()
+        public ActionResult<List<SolicitudReparacion>> ObtenerTodasLasSolicitudes()
         {
             var solicitudes = _solicitudReparacionServices.ObtenerTodasLasSolicitudes();
             return Ok(solicitudes);
         }
 
         [HttpGet("{id}")]
-        public IActionResult ObtenerSolicitudPorId(int id)
+        public ActionResult<SolicitudReparacion> ObtenerSolicitudPorId(int id)
         {
             var solicitud = _solicitudReparacionServices.ObtenerSolicitudPorId(id);
             if (solicitud == null)
@@ -35,23 +36,28 @@ namespace AutoFixRepairAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult CrearSolicitudReparacion([FromBody] SolicitudReparacion nuevaSolicitud)
+        public ActionResult<SolicitudReparacion> CrearSolicitud(SolicitudReparacion nuevaSolicitud)
         {
-            _solicitudReparacionServices.CrearSolicitud(nuevaSolicitud);
-            return CreatedAtAction(nameof(ObtenerSolicitudPorId), new { id = nuevaSolicitud.Id }, nuevaSolicitud);
+            var createdSolicitud = _solicitudReparacionServices.CrearSolicitud(nuevaSolicitud);
+            return CreatedAtAction(nameof(ObtenerSolicitudPorId), new { id = createdSolicitud.Id }, createdSolicitud);
         }
 
         [HttpPut("{id}")]
-        public IActionResult ActualizarSolicitudReparacion(int id, [FromBody] SolicitudReparacion solicitudActualizada)
+        public IActionResult ActualizarSolicitudReparacion(int id, SolicitudReparacion solicitudActualizada)
         {
             if (id != solicitudActualizada.Id)
             {
                 return BadRequest();
             }
 
+            var solicitudExistente = _solicitudReparacionServices.ObtenerSolicitudPorId(id);
+            if (solicitudExistente == null)
+            {
+                return NotFound();
+            }
+
             _solicitudReparacionServices.ActualizarSolicitud(solicitudActualizada);
             return NoContent();
         }
-
     }
 }

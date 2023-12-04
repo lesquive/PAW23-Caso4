@@ -19,10 +19,11 @@ namespace AutoFixRepairAPI.Services
             return _context.SolicitudesReparacion.ToList();
         }
 
-        public void CrearSolicitud(SolicitudReparacion nuevaSolicitud)
+        public SolicitudReparacion CrearSolicitud(SolicitudReparacion nuevaSolicitud)
         {
             _context.SolicitudesReparacion.Add(nuevaSolicitud);
             _context.SaveChanges();
+            return nuevaSolicitud;
         }
 
         public void ActualizarSolicitud(SolicitudReparacion solicitudActualizada)

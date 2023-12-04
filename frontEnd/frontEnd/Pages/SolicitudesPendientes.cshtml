@@ -1,0 +1,187 @@
+﻿@page
+@model frontEnd.Pages.SolicitudesPendientesModel
+@{
+    ViewData["Title"] = "Servicios de AutoFix";
+}
+
+<style>
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    td a {
+        text-decoration: none;
+        color: blue;
+    }
+
+        td a:hover {
+            text-decoration: underline;
+        }
+
+    p {
+        color: red;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+
+    .modal-body {
+        padding: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+</style>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <p>@Model.ErrorMessage</p>
+}
+else
+{
+    <h1>Solicitudes Pendientes</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Cliente ID</th>
+                <th>Tipo de Reparación</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var solicitud in Model.Reparaciones)
+            {
+                <tr>
+                    <td id="solicitudId">@solicitud.Id</td>
+                    <td>@solicitud.ClienteId</td>
+                    <td>@solicitud.TipoReparacionId</td>
+                    <td>
+                        @if (solicitud.IdMecanicoAsignado == null)
+                        {
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#asignarModal" data-solicitudid="@solicitud.Id">
+                                Asignar Mecánico
+                            </button>
+                        }
+                        else
+                        {
+                            @if (!solicitud.Completada)
+                            {
+                                <button id="completarBtn" type="button" class="btn btn-success" data-solicitudid="@solicitud.Id">
+                                    Completar
+                                </button>
+                            }
+                            else
+                            {
+                                <p>Solicitud completada.</p>
+                            }
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="modal fade" id="asignarModal" tabindex="-1" role="dialog" aria-labelledby="asignarModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="asignarModalLabel">Asignar Mecánico</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post">
+                        <div class="form-group">
+                            <label for="mecanicoId">ID del Mecánico:</label>
+                            <input type="text" class="form-control" id="mecanicoId" name="mecanicoId" placeholder="Ingrese el ID del mecánico">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="asignarBtn">Asignar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script>document.addEventListener('DOMContentLoaded', function () {
+        var asignarBtns = document.querySelectorAll('.btn-primary[data-toggle="modal"]');
+
+        asignarBtns.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var solicitudId = this.getAttribute('data-solicitudid');
+                document.getElementById('mecanicoId').setAttribute('data-solicitudid', solicitudId);
+            });
+        });
+
+        var asignarBtn = document.querySelector('#asignarBtn');
+
+        asignarBtn.addEventListener('click', function () {
+            var mecanicoId = document.querySelector('#mecanicoId').value;
+            var solicitudId = document.querySelector('#mecanicoId').getAttribute('data-solicitudid');
+
+            if (mecanicoId.trim() !== '') {
+                var url = `https://localhost:7131/api/AsignacionSolicitud/asignar-mecanico?idSolicitud=${solicitudId}&idMecanico=${mecanicoId}`;
+
+                fetch(url, {
+                    method: 'POST'
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            console.log('Asignación exitosa');
+                            window.location.href = '/index';
+                        } else {
+                            console.error('Error al asignar el mecánico');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            } else {
+                console.error('El ID del mecánico es requerido');
+            }
+        });
+
+        document.querySelector('#completarBtn').addEventListener('click', function () {
+            var solicitudId = this.getAttribute('data-solicitudid');
+            var completarUrl = `https://localhost:7131/api/AsignacionSolicitud/marcar-completada?idSolicitud=${solicitudId}`;
+
+            fetch(completarUrl, {
+                method: 'POST'
+            })
+                .then(response => {
+                    if (response.ok) {
+                        console.log('Solicitud marcada como completada');
+                        window.location.href = '/index';
+                    } else {
+                        console.error('Error al marcar como completada');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+    });</script>
+

@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AutoFixRepairAPI.Migrations
 {
     [DbContext(typeof(AutoFixDbContext))]
-    [Migration("20231204012904_addSeedData")]
-    partial class addSeedData
+    [Migration("20231204021826_initialData")]
+    partial class initialData
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -235,6 +235,9 @@ namespace AutoFixRepairAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<int>("AnioAutomovil")
+                        .HasColumnType("int");
+
                     b.Property<int>("ClienteId")
                         .HasColumnType("int");
 
@@ -243,6 +246,18 @@ namespace AutoFixRepairAPI.Migrations
 
                     b.Property<int?>("IdMecanicoAsignado")
                         .HasColumnType("int");
+
+                    b.Property<string>("MarcaAutomovil")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ModeloAutomovil")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("PlacaAutomovil")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<int>("TipoReparacionId")
                         .HasColumnType("int");
@@ -259,78 +274,122 @@ namespace AutoFixRepairAPI.Migrations
                         new
                         {
                             Id = 1,
+                            AnioAutomovil = 2022,
                             ClienteId = 1,
                             Completada = false,
+                            MarcaAutomovil = "Marca X",
+                            ModeloAutomovil = "Modelo A",
+                            PlacaAutomovil = "XYZ456",
                             TipoReparacionId = 1
                         },
                         new
                         {
                             Id = 2,
+                            AnioAutomovil = 2022,
                             ClienteId = 2,
                             Completada = false,
+                            MarcaAutomovil = "Marca X",
+                            ModeloAutomovil = "Modelo A",
+                            PlacaAutomovil = "XYZ456",
                             TipoReparacionId = 2
                         },
                         new
                         {
                             Id = 3,
+                            AnioAutomovil = 2022,
                             ClienteId = 3,
                             Completada = false,
+                            MarcaAutomovil = "Marca X",
+                            ModeloAutomovil = "Modelo A",
+                            PlacaAutomovil = "XYZ456",
                             TipoReparacionId = 3
                         },
                         new
                         {
                             Id = 4,
+                            AnioAutomovil = 2022,
                             ClienteId = 4,
                             Completada = false,
+                            MarcaAutomovil = "Marca X",
+                            ModeloAutomovil = "Modelo A",
+                            PlacaAutomovil = "XYZ456",
                             TipoReparacionId = 4
                         },
                         new
                         {
                             Id = 5,
+                            AnioAutomovil = 2022,
                             ClienteId = 5,
                             Completada = false,
+                            MarcaAutomovil = "Marca X",
+                            ModeloAutomovil = "Modelo A",
+                            PlacaAutomovil = "XYZ456",
                             TipoReparacionId = 5
                         },
                         new
                         {
                             Id = 6,
+                            AnioAutomovil = 2022,
                             ClienteId = 6,
                             Completada = false,
+                            MarcaAutomovil = "Marca X",
+                            ModeloAutomovil = "Modelo A",
+                            PlacaAutomovil = "XYZ456",
                             TipoReparacionId = 6
                         },
                         new
                         {
                             Id = 7,
+                            AnioAutomovil = 2022,
                             ClienteId = 7,
                             Completada = false,
+                            MarcaAutomovil = "Marca X",
+                            ModeloAutomovil = "Modelo A",
+                            PlacaAutomovil = "XYZ456",
                             TipoReparacionId = 7
                         },
                         new
                         {
                             Id = 8,
+                            AnioAutomovil = 2022,
                             ClienteId = 3,
                             Completada = false,
+                            MarcaAutomovil = "Marca X",
+                            ModeloAutomovil = "Modelo A",
+                            PlacaAutomovil = "XYZ456",
                             TipoReparacionId = 8
                         },
                         new
                         {
                             Id = 9,
+                            AnioAutomovil = 2022,
                             ClienteId = 5,
                             Completada = false,
+                            MarcaAutomovil = "Marca X",
+                            ModeloAutomovil = "Modelo A",
+                            PlacaAutomovil = "XYZ456",
                             TipoReparacionId = 9
                         },
                         new
                         {
                             Id = 10,
+                            AnioAutomovil = 2022,
                             ClienteId = 1,
                             Completada = false,
+                            MarcaAutomovil = "Marca X",
+                            ModeloAutomovil = "Modelo A",
+                            PlacaAutomovil = "XYZ456",
                             TipoReparacionId = 10
                         },
                         new
                         {
                             Id = 11,
+                            AnioAutomovil = 2022,
                             ClienteId = 3,
                             Completada = false,
+                            MarcaAutomovil = "Marca X",
+                            ModeloAutomovil = "Modelo A",
+                            PlacaAutomovil = "XYZ456",
                             TipoReparacionId = 11
                         });
                 });

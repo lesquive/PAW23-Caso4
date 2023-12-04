@@ -17,6 +17,10 @@ namespace AutoFixRepairAPI.Controllers
         [HttpPost("asignar-mecanico")]
         public IActionResult AsignarSolicitudAMecanico(int idSolicitud, int idMecanico)
         {
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7184");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, Authorization");
+
             _asignacionSolicitudService.AsignarSolicitudAMecanico(idSolicitud, idMecanico);
             return Ok("Solicitud asignada al mecánico correctamente.");
         }
@@ -24,6 +28,10 @@ namespace AutoFixRepairAPI.Controllers
         [HttpPost("marcar-completada")]
         public IActionResult MarcarSolicitudComoCompletada(int idSolicitud)
         {
+            Response.Headers.Add("Access-Control-Allow-Origin", "https://localhost:7184");
+            Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+            Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, Authorization");
+
             _asignacionSolicitudService.MarcarSolicitudComoCompletada(idSolicitud);
             return Ok("Solicitud marcada como completada.");
         }
