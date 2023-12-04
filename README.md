@@ -14,7 +14,17 @@ Programación Avanzada Web
 ### Profesor
 José Andres Arias Brenes
 
-### Diciembre de 2023
+#### Diciembre de 2023
+
+### Screenshots:
+
+![image](https://github.com/lesquive/PAW23-Caso4/assets/51721338/a123a6cf-b140-4159-be73-83902b90990f)
+
+![image](https://github.com/lesquive/PAW23-Caso4/assets/51721338/981bffd9-681d-4b77-a11f-75c3d99fc265)
+
+![image](https://github.com/lesquive/PAW23-Caso4/assets/51721338/26aca663-9bcd-4757-810b-d9a4b2c2996d)
+
+![image](https://github.com/lesquive/PAW23-Caso4/assets/51721338/4cff85cb-3168-47c7-bf87-f4900d219bb4)
 
 ## Resumen Ejecutivo
 
@@ -50,17 +60,6 @@ Se implementarán servicios que permitan separar la lógica empresarial de la in
 3. Desarrollo e Implementación: Codificar la aplicación en .NET Core 6, implementar la lógica de negocios y la capa de persistencia de datos.
 4. Pruebas y Depuración: Realizar pruebas exhaustivas para garantizar la funcionalidad y la estabilidad del sistema.
 5. Despliegue y Entrega: Lanzar la aplicación y proporcionar soporte post-implementación.
-
-### Screenshots:
-
-![image](https://github.com/lesquive/PAW23-Caso4/assets/51721338/a123a6cf-b140-4159-be73-83902b90990f)
-
-![image](https://github.com/lesquive/PAW23-Caso4/assets/51721338/981bffd9-681d-4b77-a11f-75c3d99fc265)
-
-![image](https://github.com/lesquive/PAW23-Caso4/assets/51721338/26aca663-9bcd-4757-810b-d9a4b2c2996d)
-
-
-
 
 ## Conclusión
 
